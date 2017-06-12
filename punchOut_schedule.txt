@@ -9,7 +9,7 @@ Ideas to Implement
 
   - Background
 
-  - Music
+  - Music(?)
     - Fight
     - Win
     - Loss
@@ -25,7 +25,8 @@ Monday
 Tuesday
   - Structure page
     - html setup
-    - css(?)
+    - css
+    - js
 
 Wednesday
   - Add fighter sprites and animation
@@ -37,3 +38,4 @@ Thursday
 
 Mon-Thurs
   - Create responsive site
+  - Map key presses to buttons
