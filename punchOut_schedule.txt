@@ -1,0 +1,39 @@
+Ideas to Implement
+  - Animations
+    - Boxer animations
+      - Little Mac
+      - Opponents
+    - Referee
+    - Audience(?)
+
+
+  - Background
+
+  - Music
+    - Fight
+    - Win
+    - Loss
+    - Title Screen
+    - Intro(?)
+    - Title Fight(?)
+
+
+Monday
+  - Learn how to use spritesheets.
+
+
+Tuesday
+  - Structure page
+    - html setup
+    - css(?)
+
+Wednesday
+  - Add fighter sprites and animation
+    - Time to actions
+
+Thursday
+  - Add music
+    - Time to events
+
+Mon-Thurs
+  - Create responsive site
