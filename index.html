@@ -8,19 +8,41 @@
   </head>
 
   <body>
-    <div class="titleScreen">
-      <header>MIKE TYSON'S</header>
-      <div class="title">
-        <h1>PUNCH-OUT!!&reg;</h1>
+    <div class="container">
+
+      <div class="titleScreen">
+        <header>MIKE TYSON'S</header>
+        <div class="title">
+          <h1>PUNCH-OUT!!&reg;</h1>
+        </div>
+        <div>
+          <form id="Options">
+            <input type="button" value="Start">START</input>
+          </form>
+        </div>
+        <footer>&copy;1987 Nintendo</footer>
       </div>
-      <div>
-        <select name="Options">
-          <option value="Start">START</option>
-        </select>
+
+      <div class="match">
+        <text id="fight">"Fight!"</text>
+        <div class="countdown">
+          <text id="1">1</text>
+          <text id="2">2</text>
+          <text id="3">3</text>
+          <text id="4">4</text>
+          <text id="5">5</text>
+          <text id="6">6</text>
+          <text id="7">7</text>
+          <text id="8">8</text>
+          <text id="9">9</text>
+          <text id="10">10</text>
+          <text id="K.O.">K.O./text>
+          <text id="T.K.O.">T.K.O.</text>
+        </div>
       </div>
-      <footer>&copy;1987 Nintendo</footer>
     </div>
 
-
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <script src="js/app.js"></script>
   </body>
 </html>

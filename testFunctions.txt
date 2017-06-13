@@ -127,3 +127,4 @@ function animate() {
    walk.update();
 
    walk.draw(12.5, 12.5);
+}
