@@ -4,6 +4,8 @@
     <meta charset="utf-8">
     <title>Mike Tyson's Punch Out!</title>
     <link href="css/reset.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:700" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
   </head>
 
@@ -13,14 +15,23 @@
       <div class="titleScreen">
         <header>MIKE TYSON'S</header>
         <div class="title">
-          <h1>PUNCH-OUT!!&reg;</h1>
+          <h1>
+            <text class="fontSerif">P</text>
+            <text class="fontSans">UNCH-</text>
+            <text class="fontSerif">O</text>
+            <text class="fontSans">UT</text>
+            <text class="fontSerif">!!</text>
+            <text id="trademark">&reg;</text>
+          </h1>
         </div>
-        <div>
-          <form id="Options">
-            <input type="button" value="Start">START</input>
+        <div class="options">
+          <form>
+            <input type="button" value="New"></input>
           </form>
         </div>
-        <footer>&copy;1987 Nintendo</footer>
+        <footer>
+          <text>&copy;1987 Nintendo</text>
+        </footer>
       </div>
 
       <div class="match">
