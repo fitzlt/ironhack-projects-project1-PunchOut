@@ -1,33 +1,6 @@
 .match {
   width: 100%;
   height: 100%;
-}
-
-.scoreBoard {
-  height: 16.5%;
-  background-color: #4B70A4
-}
-
-.midRing {
-  height: 16.5%;
-}
-
-.pole {
-  width: 2%;
-  height: 16.5%;
+  background-image: url("../images/tyson_ring.png");
   position: absolute;
-  top: 20%;
-  background-color: #EA9114;
-  border-radius: 13%;
-}
-.right {
-  right: 4%;
-}
-.left {
-  left: 4%;
-}
-
-.floor {
-  height: 67%;
-  background-color: #298329;
 }
