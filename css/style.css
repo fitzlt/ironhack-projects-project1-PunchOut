@@ -23,7 +23,13 @@ body {
 }
 .match {
   background-image: url("../images/tyson_ring.png");
+  z-index: 500;
 }
 .ending {
   background-image: url("../images/ending.jpg");
+}
+
+#myCanvas {
+  z-index: 700; /* Needs to be higher than match */
+  position: relative;
 }

@@ -15,6 +15,9 @@ $(document).ready(function() {
 // -------------------------------------------------------------------------
 //
 
+var canvas = document.getElementById("myCanvas");
+var ctx = canvas.getContext('2d');
+
 function SpriteSheet(path, frameWidth, frameHeight) {
   this.image = new Image();
   this.frameWidth = frameWidth;
@@ -72,8 +75,69 @@ function Animation(spritesheet, frameSpeed, startFrame, endFrame) {
 // -------------------------------------------------------------------------
 //
 
-var tyson = SpriteSheet("./images/mike-tyson-use.png", 766, 1184);
+var tyson = {
+  sheet: new SpriteSheet("./images/mike-tyson-use.png", 153.2, 236.8),
+};
+
+tyson.walk = new Animation(tyson.sheet, 1, 1, 4);
+tyson.stand = new Animation(tyson.sheet, 1, 6, 8);
+tyson.punch = new Animation(tyson.sheet, 1, 12, 13);
+tyson.uppercut = (function () {
+  new Animation(tyson.sheet, 1, 9, 9);
+  new Animation(tyson.sheet, 1, 11, 11);
+});
+tyson.hitHigh = new Animation(tyson.sheet, 1, 17, 17);
+tyson.hitLow = new Animation(tyson.sheet, 1, 16, 16);
+
+setInterval(function () {
+  ctx.clearRect(0, 0, 1024, 768);
+  tyson.stand.update();
+  tyson.stand.draw(450, 200);
+}, 500);
 
 // -------------------------------------------------------------------------
 
-var littleMac = SpriteSheet("./images/little-mac-use.png", 868, 2735);
+var littleMac = {
+  sheet: new SpriteSheet("./images/little-mac-use.png", 100, 194),
+};
+
+littleMac.walk = new Animation(littleMac.sheet, 1, 0, 1);
+littleMac.stand = new Animation(littleMac.sheet, 1, 0, 1);
+littleMac.lightPunch = new Animation(littleMac.sheet, 1, 32, 34);
+littleMac.hardPunch = new Animation(littleMac.sheet, 1, 45, 50);
+littleMac.dodge = new Animation(littleMac.sheet, 1, 8, 10);
+
+// setInterval(function () {
+//   ctx.clearRect(0, 0, 1024, 768);
+//   littleMac.lightPunch.update();
+//   littleMac.lightPunch.draw(450, 400);
+// }, 500);
+
+//
+// -------------------------------------------------------------------------
+// Game Functions
+// -------------------------------------------------------------------------
+//
+//
+// setInterval(function() {
+//   ctx.clearRect(0, 0, 1024, 768);
+// });
+
+$(document).keydown(function(e) {
+    switch(e.which) {
+        case 32: // spacebar
+          littleMac.dodge();
+        break;
+
+        case 188: // comma
+          littleMac.lightPunch();
+        break;
+
+        case 190: // period
+          littleMac.hardPunch();
+        break;
+
+        default: return; // exit this handler for other keys
+    }
+    e.preventDefault(); // prevent the default action (scroll / move caret)
+});
