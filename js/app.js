@@ -65,17 +65,6 @@ function Animation(spritesheet, frameSpeed, startFrame, endFrame) {
   };
 }
 
-spritesheet = new SpriteSheet('Walk_Cycle_Image.png', 125, 125);
-walk = new Animation(spritesheet, 3, 0, 15);
-
-function animate() {
-   requestAnimFrame( animate );
-   ctx.clearRect(0, 0, 150, 150);
-
-   walk.update();
-
-   walk.draw(12.5, 12.5);
-}
 
 //
 // -------------------------------------------------------------------------
@@ -83,9 +72,8 @@ function animate() {
 // -------------------------------------------------------------------------
 //
 
-var tyson = {
-  walk      : ;
-  fight     : ;
-  hit       : ;
-  knockdown : ;
-};
+var tyson = SpriteSheet("./images/mike-tyson-use.png", 766, 1184);
+
+// -------------------------------------------------------------------------
+
+var littleMac = SpriteSheet("./images/little-mac-use.png", 868, 2735);
