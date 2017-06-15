@@ -15,3 +15,15 @@ body {
   margin: auto;
   font:
 }
+
+.match, .ending {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+}
+.match {
+  background-image: url("../images/tyson_ring.png");
+}
+.ending {
+  background-image: url("../images/ending.jpg");
+}

@@ -1,16 +1,15 @@
-// $(document).ready(function() {
-$(".match").hide();
-// });
+$(".match, .ending").hide();
 
 $(document).ready(function() {
-  $("options :button").click(function() {
-    $(".titleScreen").hide(3000);
+  $("#ring").click(function() {
+    $(".titleScreen").hide(2000);
+    $(".match").show(2000);
   });
 });
+
 // var a = jQuery.Event("keypress")
 
-//
-//
+
 // function SpriteSheet(path, frameWidth, frameHeight) {
 //
 //    var image = new Image();
