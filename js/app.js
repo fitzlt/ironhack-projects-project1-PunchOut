@@ -1,15 +1,20 @@
-$(".original, .match, .ending").hide();
+$(".custom, .difficulty, .match, .ending").hide();
 
 $(document).ready(function() {
   setInterval(function () {
-    $("header").hide(1000);
-  }, 3000);
+    $(".original").hide(1000);
+    $(".custom").show(1000);
+  }, 2000);
 });
 
 $(document).ready(function() {
   $(".start").click(function() {
-    $(".titleScreen").hide(2000);
-    $(".match").show(2000);
+    $(".start").hide(0);
+    $(".difficulty").show(0);
+  });
+  $(".difficulty").click(function() {
+    $(".titleScreen").hide(1000);
+    $(".match").show(1000);
   });
 });
 
@@ -87,11 +92,8 @@ var tyson = {
 
 tyson.walk = new Animation(tyson.sheet, 1, 1, 4);
 tyson.stand = new Animation(tyson.sheet, 1, 6, 8);
-tyson.punch = new Animation(tyson.sheet, 1, 12, 13);
-tyson.uppercut = (function () {
-  new Animation(tyson.sheet, 1, 9, 9);
-  new Animation(tyson.sheet, 1, 11, 11);
-});
+tyson.punch = new Animation(tyson.sheet, 1, 13, 13);
+tyson.uppercut = new Animation(tyson.sheet, 1, 9, 9);
 tyson.hitHigh = new Animation(tyson.sheet, 1, 17, 17);
 tyson.hitLow = new Animation(tyson.sheet, 1, 16, 16);
 

@@ -33,3 +33,9 @@ body {
   z-index: 700; /* Needs to be higher than match */
   position: relative;
 }
+
+.dancing {
+  position: absolute;
+  bottom: 15%;
+  
+}

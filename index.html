@@ -14,12 +14,21 @@
     <div class="container">
 
       <div class="titleScreen">
-        <header>MIKE TYSON'S</header>
+        <header class="original">MIKE TYSON'S</header>
+        <header class="custom">LAWRENCE FITZGERALD'S</header>
         <div class="title">
-          <h1>
+          <h1 class="original">
+            <text class="fontSerif">P</text>
+            <text class="fontSans">UNCH-</text>
+            <text class="fontSerif">O</text>
+            <text class="fontSans">UT</text>
+            <text class="fontSerif">!!</text>
+            <text id="trademark">&reg;</text>
+          </h1>
+          <h1 class="custom">
             <text class="fontSerif">T</text>
-            <text class="fontSans">WERKIN'-</text>
-            <text class="fontSerif">T</text>
+            <text class="fontSans">WERKIN</text>
+            <text class="fontSerif">'-T</text>
             <text class="fontSans">YSON</text>
             <text class="fontSerif">!!</text>
             <text id="trademark">&reg;</text>
@@ -27,20 +36,25 @@
         </div>
         <div class="options">
           <form>
-            <input class="select" type="button" value="Start"></input>
-            <input class="easy" type="button" value="Easy : 5000"></input>
-            <input class="normal" type="button" value="Normal : 10000"></input>
-            <input class="hard" type="button" value="Hard : 20000"></input>
+            <input class="start" type="button" value="Start"></input>
+            <input class="difficulty" type="button" value="Easy : 5000"></input>
+            <input class="difficulty" type="button" value="Normal : 10000"></input>
+            <input class="difficulty" type="button" value="Hard : 20000"></input>
           </form>
         </div>
         <footer>
-          <text>&copy;1987 Nintendo(...Sort of)</text>
+          <text>&copy;1987 Nintendo<text class="custom">(...Sort of)</text></text>
         </footer>
       </div>
 
-      <canvas id="myCanvas" width="1024px" height="768px"></canvas>
       <div class="match">
-
+        <canvas id="myCanvas" width="1024px" height="768px"></canvas>
+        <form class="dancing">
+          <input class="punch" type="button" value="score"></input>
+          <input class="uppercut" type="button" value="score"></input>
+          <input class="headBack" type="button" value="score"></input>
+          <input class="hipThrust" type="button" value="score"></input>
+        </form>
       </div>
 
       <div class="ending"></div>
