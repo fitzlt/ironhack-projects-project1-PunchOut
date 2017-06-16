@@ -12,29 +12,29 @@ $(document).ready(function() {
     $(".start").hide(0);
     $(".difficulty").show(0);
   });
+
+  // Select difficulty level -----------------------------------
+
   $(".difficulty").click(function() {
     $(".titleScreen").hide(1000);
     $(".match").show(1000);
+
+    // Game start ----------------------------------------------
+
     $(document).ready(function() {
-      $("#music")[0].play();
-      setInterval(function () {
-        ctx.clearRect(0, 0, 1024, 768);
-        tyson.stand.update();
-        tyson.stand.draw(450, 200);
-      }, 1000 / 2.58);
+      tyson.stand = new Animation(tyson.sheet, 0, 3, 4);
+      tyson.stand.draw(450, 200);
+      setTimeout(function () {
+        $("#music")[0].play();
+        setInterval(function () {
+          ctx.clearRect(0, 0, 1024, 768);
+          tyson.walk.update();
+          tyson.walk.draw(450, 200);
+        }, 1000 / 2.58);
+      }, 3000);
     });
   });
 });
-
-
-
-$(document).ready(function () {
-  $('.punch').click(function () {
-    punch();
-  });
-});
-
-// var a = jQuery.Event("keypress")
 
 //
 // -------------------------------------------------------------------------
@@ -106,59 +106,58 @@ var tyson = {
   sheet: new SpriteSheet("./images/mike-tyson-use.png", 153.2, 236.8),
 };
 
-tyson.walk = new Animation(tyson.sheet, 1, 1, 4);
-tyson.stand = new Animation(tyson.sheet, 1, 6, 8);
+// tyson.stand = new Animation(tyson.sheet, 0, 1, 4);
+tyson.walk = new Animation(tyson.sheet, 1, 6, 8);
 tyson.punch = new Animation(tyson.sheet, 1, 13, 13);
 tyson.uppercut = new Animation(tyson.sheet, 1, 9, 9);
 tyson.headBack = new Animation(tyson.sheet, 1, 17, 17);
 tyson.hipThrust = new Animation(tyson.sheet, 1, 16, 16);
 
 
-
-
-// -------------------------------------------------------------------------
-//
-// var littleMac = {
-//   sheet: new SpriteSheet("./images/little-mac-use.png", 100, 194),
-// };
-//
-// littleMac.walk = new Animation(littleMac.sheet, 1, 0, 1);
-// littleMac.stand = new Animation(littleMac.sheet, 1, 0, 1);
-// littleMac.lightPunch = new Animation(littleMac.sheet, 1, 32, 34);
-// littleMac.hardPunch = new Animation(littleMac.sheet, 1, 45, 50);
-// littleMac.dodge = new Animation(littleMac.sheet, 1, 8, 10);
-
-// setInterval(function () {
-//   ctx.clearRect(0, 0, 1024, 768);
-//   littleMac.lightPunch.update();
-//   littleMac.lightPunch.draw(450, 200);
-// }, 500);
-
 //
 // -------------------------------------------------------------------------
 // Game Functions
 // -------------------------------------------------------------------------
 //
-//
 
-function punch () {
-  console.log('a');
+// Create random button calls to "light up". -------------------------------
 
-  // if punch button is active
-  //      update score
+var danceMoves = [".punch", ".uppercut", ".headBack", ".hipThrust"];
+var randomIndex = Math.floor(Math.random() * 4);
+var randomMove = danceMoves[randomIndex];
 
+$(randomMove).addClass("on");
+
+
+
+function walk() {
+  ctx.clearRect(0, 0, 1024, 768);
+  tyson.walk.draw(450, 200);
 }
 
-function uppercut () {
-  console.log('s');
+function stand() {
+  ctx.clearRect(0, 0, 1024, 768);
+  tyson.stand.draw(450, 200);
 }
 
-function headBack () {
-  console.log('k');
+function punch() {
+  ctx.clearRect(0, 0, 1024, 768);
+  tyson.punch.draw(450, 200);
 }
 
-function hipThrust () {
-  console.log('l');
+function uppercut() {
+  ctx.clearRect(0, 0, 1024, 768);
+  tyson.uppercut.draw(450, 200);
+}
+
+function headBack() {
+  ctx.clearRect(0, 0, 1024, 768);
+  tyson.headBack.draw(450, 200);
+}
+
+function hipThrust() {
+  ctx.clearRect(0, 0, 1024, 768);
+  tyson.hipThrust.draw(450, 200);
 }
 
 $(document).keydown(function(e) {
@@ -168,28 +167,16 @@ $(document).keydown(function(e) {
           break;
 
         case 83: // s
-          console.log('s');
+          uppercut();
           break;
 
         case 75: // k
-          console.log('k');
+          headBack();
           break;
 
         case 76: // l
-          console.log('l');
+          hipThrust();
           break;
-
-        case 32: // spacebar
-          littleMac.dodge();
-        break;
-
-        case 188: // comma
-          littleMac.lightPunch();
-        break;
-
-        case 190: // period
-          littleMac.hardPunch();
-        break;
 
         default: return; // exit this handler for other keys
     }
@@ -197,6 +184,27 @@ $(document).keydown(function(e) {
 });
 
 
-// -------------------------------------------------------------------------
+$(document).ready(function () {
+  $('.punch').click(function () {
+    punch();
+  });
+});
 
-// if ("")
+$(document).ready(function () {
+  $('.uppercut').click(function () {
+    uppercut();
+  });
+});
+
+$(document).ready(function () {
+  $('.headBack').click(function () {
+    headBack();
+  });
+});
+
+$(document).ready(function () {
+  $('.hipThrust').click(function () {
+    hipThrust();
+  });
+});
+// -------------------------------------------------------------------------

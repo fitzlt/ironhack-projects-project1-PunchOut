@@ -29,6 +29,10 @@ header {
   font-size: 3em;
 }
 
+.difficulty {
+  border: 5px solid orange;
+}
+
 .fontSerif {
   font-family: 'Roboto Slab', serif;
   font-size: 10em;
