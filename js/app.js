@@ -15,8 +15,17 @@ $(document).ready(function() {
   $(".difficulty").click(function() {
     $(".titleScreen").hide(1000);
     $(".match").show(1000);
+    $(document).ready(function() {
+      $("#music")[0].play();
+      setInterval(function () {
+        ctx.clearRect(0, 0, 1024, 768);
+        tyson.stand.update();
+        tyson.stand.draw(450, 200);
+      }, 1000 / 2.58);
+    });
   });
 });
+
 
 
 $(document).ready(function () {
@@ -104,11 +113,6 @@ tyson.uppercut = new Animation(tyson.sheet, 1, 9, 9);
 tyson.headBack = new Animation(tyson.sheet, 1, 17, 17);
 tyson.hipThrust = new Animation(tyson.sheet, 1, 16, 16);
 
-setInterval(function () {
-  ctx.clearRect(0, 0, 1024, 768);
-  tyson.stand.update();
-  tyson.stand.draw(450, 200);
-}, 1000 / 2.58);
 
 
 
@@ -142,7 +146,7 @@ function punch () {
 
   // if punch button is active
   //      update score
-  
+
 }
 
 function uppercut () {

@@ -41,3 +41,11 @@ body {
   margin-left: 10%;
   margin-right: 20%;
 }
+
+.on {
+  background-color: #E57ABC;
+}
+
+.hit {
+  background-color: #7AE5D9;
+}
