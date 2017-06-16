@@ -35,7 +35,9 @@ body {
 }
 
 .dancing {
+  z-index: 900; /* Needs to be higher than canvas */
   position: absolute;
-  bottom: 15%;
-  
+  bottom: 10%;
+  margin-left: 10%;
+  margin-right: 20%;
 }

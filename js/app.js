@@ -18,6 +18,13 @@ $(document).ready(function() {
   });
 });
 
+
+$(document).ready(function () {
+  $('.punch').click(function () {
+    punch();
+  });
+});
+
 // var a = jQuery.Event("keypress")
 
 //
@@ -94,14 +101,16 @@ tyson.walk = new Animation(tyson.sheet, 1, 1, 4);
 tyson.stand = new Animation(tyson.sheet, 1, 6, 8);
 tyson.punch = new Animation(tyson.sheet, 1, 13, 13);
 tyson.uppercut = new Animation(tyson.sheet, 1, 9, 9);
-tyson.hitHigh = new Animation(tyson.sheet, 1, 17, 17);
-tyson.hitLow = new Animation(tyson.sheet, 1, 16, 16);
+tyson.headBack = new Animation(tyson.sheet, 1, 17, 17);
+tyson.hipThrust = new Animation(tyson.sheet, 1, 16, 16);
 
 setInterval(function () {
   ctx.clearRect(0, 0, 1024, 768);
   tyson.stand.update();
   tyson.stand.draw(450, 200);
-}, 350);
+}, 1000 / 2.58);
+
+
 
 // -------------------------------------------------------------------------
 //
@@ -118,7 +127,7 @@ setInterval(function () {
 // setInterval(function () {
 //   ctx.clearRect(0, 0, 1024, 768);
 //   littleMac.lightPunch.update();
-//   littleMac.lightPunch.draw(450, 400);
+//   littleMac.lightPunch.draw(450, 200);
 // }, 500);
 
 //
@@ -127,12 +136,45 @@ setInterval(function () {
 // -------------------------------------------------------------------------
 //
 //
-// setInterval(function() {
-//   ctx.clearRect(0, 0, 1024, 768);
-// });
+
+function punch () {
+  console.log('a');
+
+  // if punch button is active
+  //      update score
+  
+}
+
+function uppercut () {
+  console.log('s');
+}
+
+function headBack () {
+  console.log('k');
+}
+
+function hipThrust () {
+  console.log('l');
+}
 
 $(document).keydown(function(e) {
     switch(e.which) {
+        case 65: // a
+          punch();
+          break;
+
+        case 83: // s
+          console.log('s');
+          break;
+
+        case 75: // k
+          console.log('k');
+          break;
+
+        case 76: // l
+          console.log('l');
+          break;
+
         case 32: // spacebar
           littleMac.dodge();
         break;
@@ -149,3 +191,8 @@ $(document).keydown(function(e) {
     }
     e.preventDefault(); // prevent the default action (scroll / move caret)
 });
+
+
+// -------------------------------------------------------------------------
+
+// if ("")
