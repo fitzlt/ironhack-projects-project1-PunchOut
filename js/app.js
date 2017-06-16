@@ -1,7 +1,13 @@
-$(".match, .ending").hide();
+$(".original, .match, .ending").hide();
 
 $(document).ready(function() {
-  $("#ring").click(function() {
+  setInterval(function () {
+    $("header").hide(1000);
+  }, 3000);
+});
+
+$(document).ready(function() {
+  $(".start").click(function() {
     $(".titleScreen").hide(2000);
     $(".match").show(2000);
   });
@@ -93,19 +99,19 @@ setInterval(function () {
   ctx.clearRect(0, 0, 1024, 768);
   tyson.stand.update();
   tyson.stand.draw(450, 200);
-}, 500);
+}, 350);
 
 // -------------------------------------------------------------------------
-
-var littleMac = {
-  sheet: new SpriteSheet("./images/little-mac-use.png", 100, 194),
-};
-
-littleMac.walk = new Animation(littleMac.sheet, 1, 0, 1);
-littleMac.stand = new Animation(littleMac.sheet, 1, 0, 1);
-littleMac.lightPunch = new Animation(littleMac.sheet, 1, 32, 34);
-littleMac.hardPunch = new Animation(littleMac.sheet, 1, 45, 50);
-littleMac.dodge = new Animation(littleMac.sheet, 1, 8, 10);
+//
+// var littleMac = {
+//   sheet: new SpriteSheet("./images/little-mac-use.png", 100, 194),
+// };
+//
+// littleMac.walk = new Animation(littleMac.sheet, 1, 0, 1);
+// littleMac.stand = new Animation(littleMac.sheet, 1, 0, 1);
+// littleMac.lightPunch = new Animation(littleMac.sheet, 1, 32, 34);
+// littleMac.hardPunch = new Animation(littleMac.sheet, 1, 45, 50);
+// littleMac.dodge = new Animation(littleMac.sheet, 1, 8, 10);
 
 // setInterval(function () {
 //   ctx.clearRect(0, 0, 1024, 768);
