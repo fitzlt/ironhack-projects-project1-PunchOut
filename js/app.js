@@ -19,20 +19,44 @@ $(document).ready(function() {
     $(".titleScreen").hide(1000);
     $(".match").show(1000);
 
+    // Create random button calls to "light up". -------------------------------
+
+    var danceMoves = [".punch", ".uppercut", ".headBack", ".hipThrust"];
+
+    // -------------------------------------------------------------------------
+
     // Game start ----------------------------------------------
 
-    $(document).ready(function() {
-      tyson.stand = new Animation(tyson.sheet, 0, 3, 4);
-      tyson.stand.draw(450, 200);
-      setTimeout(function () {
-        $("#music")[0].play();
-        setInterval(function () {
-          ctx.clearRect(0, 0, 1024, 768);
-          tyson.walk.update();
-          tyson.walk.draw(450, 200);
-        }, 1000 / 2.58);
-      }, 3000);
-    });
+    tyson.stand = new Animation(tyson.sheet, 0, 3, 4);
+    tyson.stand.draw(450, 200);
+    setTimeout(function () {
+      $("#music")[0].play();
+      tysonInterval = setInterval(function () {
+        ctx.clearRect(0, 0, 1024, 768);
+        tyson.walk.update();
+        tyson.walk.draw(450, 200);
+      }, 1000 / 2.58);
+      buttonInterval = setInterval(function () {
+        var randomIndex = Math.floor(Math.random() * 4);
+        var randomMove = danceMoves[randomIndex];
+        $(".dancing > input").removeClass("on");
+        $(randomMove).addClass("on");
+      }, 2000 / 2.58);
+    }, 3000);
+  });
+});
+
+var buttonInterval;
+var tysonInterval;
+
+$(document).ready(function () {
+  $("#music").on("ended", function() {
+    clearInterval(tysonInterval);
+    clearInterval(buttonInterval);
+    $(".dancing > input").removeClass("on");
+    // if ()
+
+
   });
 });
 
@@ -120,13 +144,6 @@ tyson.hipThrust = new Animation(tyson.sheet, 1, 16, 16);
 // -------------------------------------------------------------------------
 //
 
-// Create random button calls to "light up". -------------------------------
-
-var danceMoves = [".punch", ".uppercut", ".headBack", ".hipThrust"];
-var randomIndex = Math.floor(Math.random() * 4);
-var randomMove = danceMoves[randomIndex];
-
-$(randomMove).addClass("on");
 
 
 
@@ -140,24 +157,42 @@ function stand() {
   tyson.stand.draw(450, 200);
 }
 
+var score = 0;
+
 function punch() {
   ctx.clearRect(0, 0, 1024, 768);
   tyson.punch.draw(450, 200);
+  if ($(".punch").hasClass("on")) {
+    score += 100;
+    $(".scoreBoard").html(score);
+  }
 }
 
 function uppercut() {
   ctx.clearRect(0, 0, 1024, 768);
   tyson.uppercut.draw(450, 200);
+  if ($(".uppercut").hasClass("on")) {
+    score += 100;
+    $(".scoreBoard").html(score);
+  }
 }
 
 function headBack() {
   ctx.clearRect(0, 0, 1024, 768);
   tyson.headBack.draw(450, 200);
+  if ($(".headBack").hasClass("on")) {
+    score += 100;
+    $(".scoreBoard").html(score);
+  }
 }
 
 function hipThrust() {
   ctx.clearRect(0, 0, 1024, 768);
   tyson.hipThrust.draw(450, 200);
+  if ($(".hipThrust").hasClass("on")) {
+    score += 100;
+    $(".scoreBoard").html(score);
+  }
 }
 
 $(document).keydown(function(e) {
