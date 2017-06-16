@@ -1,5 +1,7 @@
 $(".custom, .difficulty, .match, .ending").hide();
 
+var level;
+
 $(document).ready(function() {
   setInterval(function () {
     $(".original").hide(1000);
@@ -16,6 +18,7 @@ $(document).ready(function() {
   // Select difficulty level -----------------------------------
 
   $(".difficulty").click(function() {
+    level = $(".difficulty").val();
     $(".titleScreen").hide(1000);
     $(".match").show(1000);
 
@@ -54,17 +57,22 @@ $(document).ready(function () {
     clearInterval(tysonInterval);
     clearInterval(buttonInterval);
     $(".dancing > input").removeClass("on");
-    // if ()
-
-
+    if (score > level) {
+      win();
+    }
+    else {
+      lose();
+    }
   });
 });
+
 
 //
 // -------------------------------------------------------------------------
 // Functions for spritesheet animations
 // -------------------------------------------------------------------------
 //
+
 
 var canvas = document.getElementById("myCanvas");
 var ctx = canvas.getContext('2d');
@@ -126,6 +134,7 @@ function Animation(spritesheet, frameSpeed, startFrame, endFrame) {
 // -------------------------------------------------------------------------
 //
 
+
 var tyson = {
   sheet: new SpriteSheet("./images/mike-tyson-use.png", 153.2, 236.8),
 };
@@ -136,6 +145,8 @@ tyson.punch = new Animation(tyson.sheet, 1, 13, 13);
 tyson.uppercut = new Animation(tyson.sheet, 1, 9, 9);
 tyson.headBack = new Animation(tyson.sheet, 1, 17, 17);
 tyson.hipThrust = new Animation(tyson.sheet, 1, 16, 16);
+tyson.win = new Animation(tyson.sheet, 1, 18, 18);
+tyson.lose = new Animation(tyson.sheet, 1, 22, 22);
 
 
 //
@@ -143,8 +154,6 @@ tyson.hipThrust = new Animation(tyson.sheet, 1, 16, 16);
 // Game Functions
 // -------------------------------------------------------------------------
 //
-
-
 
 
 function walk() {
@@ -193,6 +202,16 @@ function hipThrust() {
     score += 100;
     $(".scoreBoard").html(score);
   }
+}
+
+function win() {
+  ctx.clearRect(0, 0, 1024, 768);
+  tyson.win.draw(450, 200);
+}
+
+function lose() {
+  ctx.clearRect(0, 0, 1024, 768);
+  tyson.lose.draw(450, 200);
 }
 
 $(document).keydown(function(e) {

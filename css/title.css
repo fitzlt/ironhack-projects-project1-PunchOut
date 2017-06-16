@@ -29,8 +29,10 @@ header {
   font-size: 3em;
 }
 
-.difficulty {
-  border: 5px solid orange;
+input.difficulty {
+  border: 5px solid #1613EB;
+  border-radius: 10px;
+  margin: 0px 50px;
 }
 
 .fontSerif {
